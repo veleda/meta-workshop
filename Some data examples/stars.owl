@@ -1,0 +1,265 @@
+@prefix : <http://data.capgemini.com/astronomy/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://data.capgemini.com/astronomy/> .
+
+<http://data.capgemini.com/astronomy/> rdf:type owl:Ontology .
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://data.capgemini.com/astronomy/tempKelvin
+:tempKelvin rdf:type owl:DatatypeProperty ;
+            rdfs:domain :Star ;
+            rdfs:range xsd:integer .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://data.capgemini.com/astronomy/A-type-Star
+:A-type-Star rdf:type owl:Class ;
+             owl:equivalentClass [ owl:intersectionOf ( :Star
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty :tempKelvin ;
+                                                          owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                                               owl:onDatatype xsd:integer ;
+                                                                               owl:withRestrictions ( [ xsd:minExclusive 7600
+                                                                                                      ]
+                                                                                                    )
+                                                                             ]
+                                                        ]
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty :tempKelvin ;
+                                                          owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                                               owl:onDatatype xsd:integer ;
+                                                                               owl:withRestrictions ( [ xsd:maxExclusive 10000
+                                                                                                      ]
+                                                                                                    )
+                                                                             ]
+                                                        ]
+                                                      ) ;
+                                   rdf:type owl:Class
+                                 ] ;
+             rdfs:label "A-type star"@en .
+
+
+###  http://data.capgemini.com/astronomy/AstronomicalBody
+:AstronomicalBody rdf:type owl:Class ;
+                  rdfs:label "Astronomical body"@en .
+
+
+###  http://data.capgemini.com/astronomy/B-type-Star
+:B-type-Star rdf:type owl:Class ;
+             owl:equivalentClass [ owl:intersectionOf ( :Star
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty :tempKelvin ;
+                                                          owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                                               owl:onDatatype xsd:integer ;
+                                                                               owl:withRestrictions ( [ xsd:minExclusive 10000
+                                                                                                      ]
+                                                                                                    )
+                                                                             ]
+                                                        ]
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty :tempKelvin ;
+                                                          owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                                               owl:onDatatype xsd:integer ;
+                                                                               owl:withRestrictions ( [ xsd:maxExclusive 30000
+                                                                                                      ]
+                                                                                                    )
+                                                                             ]
+                                                        ]
+                                                      ) ;
+                                   rdf:type owl:Class
+                                 ] ;
+             rdfs:label "B-type star"@en .
+
+
+###  http://data.capgemini.com/astronomy/F-type-Star
+:F-type-Star rdf:type owl:Class ;
+             owl:equivalentClass [ owl:intersectionOf ( :Star
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty :tempKelvin ;
+                                                          owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                                               owl:onDatatype xsd:integer ;
+                                                                               owl:withRestrictions ( [ xsd:minExclusive 6000
+                                                                                                      ]
+                                                                                                    )
+                                                                             ]
+                                                        ]
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty :tempKelvin ;
+                                                          owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                                               owl:onDatatype xsd:integer ;
+                                                                               owl:withRestrictions ( [ xsd:maxExclusive 7600
+                                                                                                      ]
+                                                                                                    )
+                                                                             ]
+                                                        ]
+                                                      ) ;
+                                   rdf:type owl:Class
+                                 ] ;
+             rdfs:label "F-type star"@en .
+
+
+###  http://data.capgemini.com/astronomy/G-type-Star
+:G-type-Star rdf:type owl:Class ;
+             owl:equivalentClass [ owl:intersectionOf ( :Star
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty :tempKelvin ;
+                                                          owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                                               owl:onDatatype xsd:integer ;
+                                                                               owl:withRestrictions ( [ xsd:minExclusive 5300
+                                                                                                      ]
+                                                                                                    )
+                                                                             ]
+                                                        ]
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty :tempKelvin ;
+                                                          owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                                               owl:onDatatype xsd:integer ;
+                                                                               owl:withRestrictions ( [ xsd:maxExclusive 6000
+                                                                                                      ]
+                                                                                                    )
+                                                                             ]
+                                                        ]
+                                                      ) ;
+                                   rdf:type owl:Class
+                                 ] ;
+             rdfs:label "G-type star"@en .
+
+
+###  http://data.capgemini.com/astronomy/K-type-Star
+:K-type-Star rdf:type owl:Class ;
+             owl:equivalentClass [ owl:intersectionOf ( :Star
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty :tempKelvin ;
+                                                          owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                                               owl:onDatatype xsd:integer ;
+                                                                               owl:withRestrictions ( [ xsd:minExclusive 3900
+                                                                                                      ]
+                                                                                                    )
+                                                                             ]
+                                                        ]
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty :tempKelvin ;
+                                                          owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                                               owl:onDatatype xsd:integer ;
+                                                                               owl:withRestrictions ( [ xsd:maxExclusive 5300
+                                                                                                      ]
+                                                                                                    )
+                                                                             ]
+                                                        ]
+                                                      ) ;
+                                   rdf:type owl:Class
+                                 ] ;
+             rdfs:label "K-type star"@en .
+
+
+###  http://data.capgemini.com/astronomy/M-type-Star
+:M-type-Star rdf:type owl:Class ;
+             owl:equivalentClass [ owl:intersectionOf ( :Star
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty :tempKelvin ;
+                                                          owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                                               owl:onDatatype xsd:integer ;
+                                                                               owl:withRestrictions ( [ xsd:maxExclusive 3900
+                                                                                                      ]
+                                                                                                    )
+                                                                             ]
+                                                        ]
+                                                      ) ;
+                                   rdf:type owl:Class
+                                 ] ;
+             rdfs:label "M-type star"@en .
+
+
+###  http://data.capgemini.com/astronomy/O-type-Star
+:O-type-Star rdf:type owl:Class ;
+             owl:equivalentClass [ owl:intersectionOf ( :Star
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty :tempKelvin ;
+                                                          owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                                               owl:onDatatype xsd:integer ;
+                                                                               owl:withRestrictions ( [ xsd:minExclusive 30000
+                                                                                                      ]
+                                                                                                    )
+                                                                             ]
+                                                        ]
+                                                      ) ;
+                                   rdf:type owl:Class
+                                 ] ;
+             rdfs:label "O-type star"@en .
+
+
+###  http://data.capgemini.com/astronomy/Star
+:Star rdf:type owl:Class ;
+      rdfs:subClassOf :AstronomicalBody .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://data.capgemini.com/astronomy/Canopus
+:Canopus rdf:type owl:NamedIndividual ,
+                  :Star ;
+         :tempKelvin 7400 ;
+         rdfs:label "Canopus"@en .
+
+
+###  http://data.capgemini.com/astronomy/EpsilonEridani
+:EpsilonEridani rdf:type owl:NamedIndividual ,
+                         :Star ;
+                :tempKelvin 5084 ;
+                rdfs:label "Epsilon Eridani"@en .
+
+
+###  http://data.capgemini.com/astronomy/EtaAurigae
+:EtaAurigae rdf:type owl:NamedIndividual ,
+                     :Star ;
+            :tempKelvin 17201 ;
+            rdfs:label "Eta Aurigae"@en .
+
+
+###  http://data.capgemini.com/astronomy/MuColumbae
+:MuColumbae rdf:type owl:NamedIndividual ,
+                     :Star ;
+            :tempKelvin 33000 ;
+            rdfs:label "Mu Columbae"@en .
+
+
+###  http://data.capgemini.com/astronomy/ProximaCentauri
+:ProximaCentauri rdf:type owl:NamedIndividual ,
+                          :Star ;
+                 :tempKelvin 3042 ;
+                 rdfs:label "Proxima Centauri"@en .
+
+
+###  http://data.capgemini.com/astronomy/Selket
+:Selket rdf:type owl:NamedIndividual ,
+                 :Star ;
+        rdfs:label "Selket"@no .
+
+
+###  http://data.capgemini.com/astronomy/Sun
+:Sun rdf:type owl:NamedIndividual ,
+              :Star ;
+     :tempKelvin 5772 ;
+     rdfs:label "Sun"@en .
+
+
+###  http://data.capgemini.com/astronomy/Vega
+:Vega rdf:type owl:NamedIndividual ,
+               :Star ;
+      :tempKelvin 9602 ;
+      rdfs:label "Vega"@en .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

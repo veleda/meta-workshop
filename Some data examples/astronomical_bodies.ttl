@@ -1,0 +1,151 @@
+@prefix : <http://data.capgemini.com/astronomy/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix unit: <http://qudt.org/vocab/unit#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+
+:Mercury a :Planet ;
+    :name "Mercury"@en , "Merkur"@no, "Merkur"@de, "Merkurius"@se, "बुध"@hin ;
+    :symbol "☿" ;
+    :aphelion "0.466697"^^unit:AU ;
+    :perihelion "0.307499"^^unit:AU ;
+    :orbitalPeriod "0.240846"^^unit:YR ;
+    :avgOrbitalSpeed "47.362"^^unit:KiloM-PER-SEC .
+
+:Venus a :Planet ;
+    :name "Venus"@en , "Venus"@no, "Venus"@de, "Venus"@se, "शुक्र"@hin ;
+    :symbol "♀" ;
+    :aphelion "0.728213"^^unit:AU ;
+    :perihelion "0.718440"^^unit:AU ;
+    :orbitalPeriod "0.615198"^^unit:YR ;
+    :avgOrbitalSpeed "35.02"^^unit:KiloM-PER-SEC .
+
+:Earth a :Planet ;
+    :name "Earth"@en , "Jorden"@no, "Erde"@de, "Jorden"@se, "पृथ्वी"@hin ;
+    :symbol "⊕" ;
+    :aphelion "1.017"^^unit:AU ;
+    :perihelion "0.98327"^^unit:AU ;
+    :orbitalPeriod "1"^^unit:YR ;
+    :avgOrbitalSpeed "29.78"^^unit:KiloM-PER-SEC .
+
+:Mars a :Planet ;
+    :name "Mars"@en , "Mars"@no, "Mars"@de, "Mars"@se, "मंगल"@hin ;
+    :symbol "♂" ;
+    :aphelion "1.666"^^unit:AU ;
+    :perihelion "1.382"^^unit:AU ;
+    :orbitalPeriod "1.880"^^unit:YR ;
+    :avgOrbitalSpeed "24.007"^^unit:KiloM-PER-SEC ;
+    :moon :Phobos .
+
+:Jupiter a :Planet ;
+    :name "Jupiter"@en , "Jupiter"@no, "Jupiter"@de, "Jupiter"@se, "बृहस्पति"@hin ;
+    :symbol "♃" ;
+    :aphelion "5.4588"^^unit:AU ;
+    :perihelion "4.9501"^^unit:AU ;
+    :orbitalPeriod "11.862"^^unit:YR ;
+    :avgOrbitalSpeed "13.07"^^unit:KiloM-PER-SEC ;
+    :moon :Io , :Europa .
+
+:Saturn a :Planet ;
+    :name "Saturn"@en , "Saturn"@no, "Saturn"@de, "Saturnus"@se, "शनि"@hin ;
+    :symbol "♄" ;
+    :aphelion "10.1238"^^unit:AU ;
+    :perihelion "9.0412"^^unit:AU ;
+    :orbitalPeriod "29.4571"^^unit:YR ;
+    :avgOrbitalSpeed "9.68"^^unit:KiloM-PER-SEC ;
+    :moon :Titan .
+
+:Uranus a :Planet ;
+    :name "Uranus"@en , "Uranus"@no, "Uranus"@de, "Uranus"@se, "अरुण"@hin ;
+    :symbol "♅" ;
+    :aphelion "20.11"^^unit:AU ;
+    :perihelion "18.33"^^unit:AU ;
+    :orbitalPeriod "84.0205"^^unit:YR ;
+    :avgOrbitalSpeed "6.80"^^unit:KiloM-PER-SEC .
+
+:Neptune a :Planet ;
+    :name "Neptune"@en , "Neptun"@no, "Neptun"@de, "Neptunus"@se, "वरुण"@hin ;
+    :symbol "♆" ;
+    :aphelion "30.33"^^unit:AU ;
+    :perihelion "29.81"^^unit:AU ;
+    :orbitalPeriod "164.8"^^unit:YR ;
+    :avgOrbitalSpeed "5.43"^^unit:KiloM-PER-SEC .
+
+:Io a :NaturalSatellite ;
+    :name "Io"@en, "Io"@no, "Io"@de, "आयो"@hin .
+
+:Europa a :NaturalSatellite ;
+    :name "Europa"@en, "Europa"@no, "Europa"@de, "यूरोपा"@hin .
+
+:Titan a :NaturalSatellite ;
+    :name "Titan"@en, "Titan"@no, "Titan"@de .
+
+:Phobos a :NaturalSatellite ;
+    :name "Phobos"@en, "Phobos"@no, "Phobos"@de .
+
+:Ceres a :DwarfPlanet ;
+    :name "Ceres"@en, "Ceres"@no, "Ceres"@de ;
+    :orbitalPeriod "4.61"^^unit:YR ;
+    :avgOrbitalSpeed "17.905"^^unit:KiloM-PER-SEC .
+
+
+#### RDFS
+
+:AstronomicalBody a rdfs:Class ;
+    rdfs:label "Astronomical body"@en ;
+    rdfs:comment "In astronomy an astronomical object or celestial object is a naturally occurring physical entity, association, or structure that exists in the observable universe."@en .
+
+
+:Planet rdfs:subClassOf :AstronomicalBody ;
+    rdfs:label "Planet"@en ;
+    rdfs:comment "A planet is an astronomical body orbiting a star or stellar remnant that is massive enough to be rounded by its own gravity"@en .
+
+:DwarfPlanet rdfs:subClassOf :AstronomicalBody ;
+    rdfs:label "Dwarf planet"@en ;
+    rdfs:comment "A dwarf planet is a planetary-mass object that does not dominate its region of space (as a true or classical planet does) and is not a satellite."@en .
+
+:NaturalSatellite rdfs:subClassOf :AstronomicalBody ;
+    rdfs:label "Natural satellite"@en ;
+    skos:altLabel "Moon"@en ;
+    rdfs:comment "A natural satellite, or moon, is, in the most common usage, an astronomical body that orbits a planet or minor planet."@en .
+
+:name a rdf:Property ;
+    rdfs:label "Name"@en ;
+    rdfs:range rdf:langString ;
+    rdfs:domain :AstronomicalBody .
+
+:symbol a rdf:Property ;
+    rdfs:label "Planet symbol"@en ;
+    rdfs:range xsd:string ;
+    rdfs:domain :Planet .
+
+:aphelion a rdf:Property ;
+    rdfs:label "Aphelion"@en ;
+    rdfs:comment "The aphelion is the point in the orbit of an object where it is farthest from the Sun."@en ;
+    rdfs:range unit:AU ;
+    rdfs:domain :Planet, :DwarfPlanet .
+
+:perihelion a rdf:Property ;
+    rdfs:label "Perihelion"@en ;
+    rdfs:comment "The perihelion is the point in the orbit of a planet, asteroid or comet that is nearest to the sun."@en ;
+    rdfs:range unit:AU ;
+    rdfs:domain :Planet, :DwarfPlanet .
+
+:orbitalPeriod a rdf:Property ;
+    rdfs:label "Orbital period"@en ;
+    rdfs:comment "The orbital period is the time a given astronomical object takes to complete one orbit around another object, and applies in astronomy usually to planets or asteroids orbiting the Sun, moons orbiting planets, exoplanets orbiting other stars, or binary stars."@en ;
+    rdfs:range unit:YR ;
+    rdfs:domain :AstronomicalBody .
+
+:avgOrbitalSpeed a rdf:Property ;
+    rdfs:label "Average orbital speed"@en ;
+    rdfs:comment "In gravitationally bound systems, the orbital speed of an astronomical body or object is the speed at which it orbits around either the barycenter or, if one object is much more massive than the other bodies in the system, its speed relative to the center of mass of the most massive body."@en ;
+    rdfs:range unit:KiloM-PER-SEC ;
+    rdfs:domain :AstronomicalBody .
+
+:moon a rdf:Property ;
+    rdfs:label "Moon"@en ;
+    rdfs:range :NaturalSatellite ;
+    rdfs:domain :Planet, :DwarfPlanet .
